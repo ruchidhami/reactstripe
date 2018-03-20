@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Route, Switch } from 'react-router-dom';
+
 //Components
 import Dashboard from './components/admin/Dashboard'
 
@@ -18,13 +20,12 @@ class App extends Component {
     this.state = {open: false};
   }
 
-  handleDrawerOpen = () => this.setState({open: true});
-  handleDrawerClose = () => this.setState({open: false});
-
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-          <Dashboard />
+        <Switch>
+          <Route exact path='/dashboard' component={Dashboard}/>
+        </Switch>
       </MuiThemeProvider>
     );
   }
