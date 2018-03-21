@@ -2,11 +2,17 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
+import Pets from 'material-ui/svg-icons/action/pets';
+import Redeem from 'material-ui/svg-icons/action/redeem';
+import Reorder from 'material-ui/svg-icons/action/reorder';
+import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
+
 import {closeSidebar} from '../../actions/dashboardAction';
 
 // Material Component
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
+import Menu from 'material-ui/Menu';
 
 class Sidebar extends Component {
     constructor(props) {
@@ -24,11 +30,13 @@ class Sidebar extends Component {
         return (
             <Drawer
             docked={false}
-            width={200}
             open={this.props.dashboard.isSidebarOpen}
             onRequestChange={ this.props.closeSidebar }>
-                <MenuItem>Menu Item</MenuItem>
-                <MenuItem>Menu Item 2</MenuItem>
+                <Menu>
+                    <MenuItem primaryText="Product" leftIcon={<Pets />} />
+                    <MenuItem primaryText="SKU" leftIcon={<Reorder />} />
+                    <MenuItem primaryText="Order" leftIcon={<Redeem />} />
+                </Menu>
           </Drawer>
         )
     }
