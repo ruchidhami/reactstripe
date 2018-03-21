@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { Route, Switch } from 'react-router-dom';
+import RouteConstant from './utilities/routeConstant';
 
 //Components
 import Dashboard from './components/admin/Dashboard'
@@ -16,6 +17,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 const muiTheme = getMuiTheme(darkBaseTheme);
 
 class App extends Component {
+
+  
   constructor(props) {
     super(props);
     this.state = {open: false};
@@ -25,8 +28,8 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <Switch>
-          <Route exact path='/dashboard' component={Dashboard}/>
-          <Route exact path='/dashboard/products' component={ProductList}/>
+          <Route exact path={ RouteConstant.DASHBOARD } component={ Dashboard }/>
+          <Route exact path={ RouteConstant.PRODUCT_LIST } component={ ProductList }/>
         </Switch>
       </MuiThemeProvider>
     );

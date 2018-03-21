@@ -8,6 +8,7 @@ import Redeem from 'material-ui/svg-icons/action/redeem';
 import Reorder from 'material-ui/svg-icons/action/reorder';
 
 import { closeSidebar, naviagateTo } from '../../actions/dashboardAction';
+import RouteConstant from '../../utilities/routeConstant';
 
 // Material Component
 import Drawer from 'material-ui/Drawer';
@@ -27,8 +28,16 @@ class Sidebar extends Component {
       open={this.props.dashboard.isSidebarOpen}
       onRequestChange={ this.props.closeSidebar }>
         <Menu>
-          <MenuItem primaryText="Dashboard" leftIcon={<ActionHome />} onClick={() => this.props.naviagateTo('/dashboard')} />
-          <MenuItem primaryText="Product" leftIcon={<Pets /> } onClick={() => this.props.naviagateTo('/dashboard/products')} />
+          <MenuItem 
+          primaryText="Dashboard" 
+          leftIcon={ <ActionHome /> } 
+          onClick={ () => this.props.naviagateTo(RouteConstant.DASHBOARD)} 
+          />
+          <MenuItem
+          primaryText="Product" 
+          leftIcon={ <Pets /> } 
+          onClick={ () => this.props.naviagateTo(RouteConstant.PRODUCT_LIST)} 
+          />
           <MenuItem primaryText="SKU" leftIcon={<Reorder />} />
           <MenuItem primaryText="Order" leftIcon={<Redeem />} />
         </Menu>
