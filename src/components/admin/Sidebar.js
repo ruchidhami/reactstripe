@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import ActionHome from 'material-ui/svg-icons/action/home';
 import Pets from 'material-ui/svg-icons/action/pets';
 import Redeem from 'material-ui/svg-icons/action/redeem';
 import Reorder from 'material-ui/svg-icons/action/reorder';
-import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 
-import { closeSidebar } from '../../actions/dashboardAction';
+import { closeSidebar, naviagateTo } from '../../actions/dashboardAction';
 
 // Material Component
 import Drawer from 'material-ui/Drawer';
@@ -27,7 +27,8 @@ class Sidebar extends Component {
       open={this.props.dashboard.isSidebarOpen}
       onRequestChange={ this.props.closeSidebar }>
         <Menu>
-          <MenuItem primaryText="Product" leftIcon={<Pets />} />
+          <MenuItem primaryText="Dashboard" leftIcon={<ActionHome />} onClick={() => this.props.naviagateTo('/dashboard')} />
+          <MenuItem primaryText="Product" leftIcon={<Pets /> } onClick={() => this.props.naviagateTo('/dashboard/products')} />
           <MenuItem primaryText="SKU" leftIcon={<Reorder />} />
           <MenuItem primaryText="Order" leftIcon={<Redeem />} />
         </Menu>
@@ -45,6 +46,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     closeSidebar: closeSidebar,
+    naviagateTo: naviagateTo
   }, dispatch)
 }
 

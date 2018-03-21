@@ -1,10 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
 
-import { BrowserRouter } from 'react-router-dom'
+import createHistory from 'history/createBrowserHistory'
+
+import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
 
 import './index.css';
 import App from './App';
@@ -17,13 +20,30 @@ import reducer from './reducers'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin()
 
-const store = createStore(reducer);
+// Create a history of your choosing (we're using a browser history in this case)
+const history = createHistory()
+
+// Build the middleware for intercepting and dispatching navigation actions
+// const middleware = routerMiddleware(history)
+const middleware = [
+  thunk,
+  routerMiddleware(history),
+];
+
+// Add the reducer to your store on the `router` key
+// Also apply our middleware for navigating
+const store = createStore(
+  reducer,
+  applyMiddleware(...middleware)
+)
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App/>
-    </BrowserRouter>
+    <ConnectedRouter history={history}>
+        <App />
+    </ConnectedRouter>
   </Provider>,
-  document.getElementById('root'));
+  document.getElementById('root')
+)
+
 registerServiceWorker();

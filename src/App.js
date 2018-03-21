@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 //Components
 import Dashboard from './components/admin/Dashboard'
+import ProductList from './components/admin/products/ProductList'
 
 // Font
 import 'typeface-roboto'
@@ -25,6 +26,7 @@ class App extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <Switch>
           <Route exact path='/dashboard' component={Dashboard}/>
+          <Route exact path='/dashboard/products' component={ProductList}/>
         </Switch>
       </MuiThemeProvider>
     );
