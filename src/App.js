@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-// Material Component
-import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
+import { Route, Switch } from 'react-router-dom';
+
+//Components
+import Dashboard from './components/admin/Dashboard'
 
 // Font
 import 'typeface-roboto'
@@ -20,24 +20,12 @@ class App extends Component {
     this.state = {open: false};
   }
 
-  handleDrawerOpen = () => this.setState({open: true});
-  handleDrawerClose = () => this.setState({open: false});
-
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <div>
-          <AppBar title="React Stripe App" onLeftIconButtonClick = { this.handleDrawerOpen } />
-
-          <Drawer
-          docked={false}
-          width={200}
-          open={this.state.open}
-          onRequestChange={ this.handleDrawerClose }>
-            <MenuItem onClick={this.handleClose}>Menu Item</MenuItem>
-            <MenuItem onClick={this.handleClose}>Menu Item 2</MenuItem>
-          </Drawer>
-        </div>
+        <Switch>
+          <Route exact path='/dashboard' component={Dashboard}/>
+        </Switch>
       </MuiThemeProvider>
     );
   }
