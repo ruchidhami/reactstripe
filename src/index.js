@@ -20,6 +20,9 @@ import reducer from './reducers'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin()
 
+// Use environment
+require('dotenv').config()
+
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory()
 

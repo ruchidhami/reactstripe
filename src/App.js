@@ -18,12 +18,6 @@ const muiTheme = getMuiTheme(darkBaseTheme);
 
 class App extends Component {
 
-  
-  constructor(props) {
-    super(props);
-    this.state = {open: false};
-  }
-
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
@@ -34,6 +28,7 @@ class App extends Component {
       </MuiThemeProvider>
     );
   }
+  
 }
 
 export default App;
