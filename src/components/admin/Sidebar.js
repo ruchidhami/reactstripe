@@ -15,46 +15,40 @@ import MenuItem from 'material-ui/MenuItem';
 import Menu from 'material-ui/Menu';
 
 class Sidebar extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            handleDrawerClose: props.handleDrawerClose
-        }
-    }
 
-    componentWillReceiveProps(props) {
-        this.setState({open: props.open});
-    }
+  componentWillReceiveProps(props) {
+    this.setState({open: props.open});
+  }
 
-    render() {
-        return (
-            <Drawer
-            docked={false}
-            open={this.props.dashboard.isSidebarOpen}
-            onRequestChange={ this.props.closeSidebar }>
-                <Menu>
-                    <MenuItem primaryText="Product" leftIcon={<Pets />} />
-                    <MenuItem primaryText="SKU" leftIcon={<Reorder />} />
-                    <MenuItem primaryText="Order" leftIcon={<Redeem />} />
-                </Menu>
-          </Drawer>
-        )
-    }
+  render() {
+    return (
+      <Drawer
+      docked={false}
+      open={this.props.dashboard.isSidebarOpen}
+      onRequestChange={ this.props.closeSidebar }>
+        <Menu>
+          <MenuItem primaryText="Product" leftIcon={<Pets />} />
+          <MenuItem primaryText="SKU" leftIcon={<Reorder />} />
+          <MenuItem primaryText="Order" leftIcon={<Redeem />} />
+        </Menu>
+      </Drawer>
+    )
+  }
 }
 
 function mapStateToProps(state) {
-    return {
-        dashboard: state.dashboard
-    };
+  return {
+    dashboard: state.dashboard
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({
-        closeSidebar: closeSidebar,
-    }, dispatch)
+  return bindActionCreators({
+    closeSidebar: closeSidebar,
+  }, dispatch)
 }
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Sidebar);;
+  mapStateToProps,
+  mapDispatchToProps
+)(Sidebar);;

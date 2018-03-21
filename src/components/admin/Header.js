@@ -8,33 +8,28 @@ import {openSidebar} from '../../actions/dashboardAction';
 import AppBar from 'material-ui/AppBar';
 
 class Header extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            handleDrawerOpen: props.handleDrawerOpen 
-        }
-    }
-    
-    render() {
-        return (
-            <div>
-                <AppBar title="React Stripe App" onLeftIconButtonClick = { this.props.openSidebar } />
-            </div>
-        )
-    }
+
+  render() {
+    return (
+      <div>
+        <AppBar title="React Stripe App" onLeftIconButtonClick = { this.props.openSidebar } />
+      </div>
+    )
+  }
+
 }
 
 function mapStateToProps(state) {
-    return {};
+  return {};
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({
-        openSidebar: openSidebar,
-    }, dispatch)
+  return bindActionCreators({
+    openSidebar: openSidebar,
+  }, dispatch)
 }
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Header);;;
