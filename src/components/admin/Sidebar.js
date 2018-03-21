@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Pets from 'material-ui/svg-icons/action/pets';
 import Redeem from 'material-ui/svg-icons/action/redeem';
 import Reorder from 'material-ui/svg-icons/action/reorder';
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 
-import {closeSidebar} from '../../actions/dashboardAction';
+import { closeSidebar } from '../../actions/dashboardAction';
 
 // Material Component
 import Drawer from 'material-ui/Drawer';

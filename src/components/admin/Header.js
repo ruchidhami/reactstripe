@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import {openSidebar} from '../../actions/dashboardAction';
+import { openSidebar } from '../../actions/dashboardAction';
 
 // Material Component
 import AppBar from 'material-ui/AppBar';

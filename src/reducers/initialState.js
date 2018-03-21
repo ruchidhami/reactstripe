@@ -1,5 +1,5 @@
 export default {
-    dashboard: {
-        isSidebarOpen: false
-    }
+  dashboard: {
+    isSidebarOpen: false
+  }
 }
