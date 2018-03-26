@@ -14,8 +14,9 @@ import {
 import Layout from '../Layout';
 import Active from '../../shared/ActiveTag'
 import SkuCount from './SkuCount'
+import Pagination from '../../shared/Pagination'
 
-import { listProductFromApi } from '../../../actions/productAction';
+import { listProductFromApi, gotoNextPage, gotoPreviousPage } from '../../../actions/productAction';
 
 class ProductList extends Component {
   render() {
@@ -37,7 +38,7 @@ class ProductList extends Component {
             </TableRow>
           </TableHeader>
           <TableBody stripedRows={true} displayRowCheckbox={false}>
-            {this.props.products.map( (product, index) => (
+            {this.props.products.data.map( (product, index) => (
               <TableRow key={index}>
                 <TableRowColumn>{product.name}</TableRowColumn>
                 <TableRowColumn><Active active={product.active}/></TableRowColumn>
@@ -46,12 +47,16 @@ class ProductList extends Component {
               ))}
           </TableBody>
         </Table>
+        <Pagination 
+        gotoPreviousPage={ () => this.props.gotoPreviousPage() }
+        gotoNextPage={ () => this.props.gotoNextPage() }
+        />
       </div> 
     );
   }
 
   componentDidMount() {
-    this.props.callApi();
+    this.props.listProductFromApi();
   }
 }
 
@@ -63,7 +68,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    callApi: listProductFromApi
+    listProductFromApi: listProductFromApi,
+    gotoPreviousPage: gotoPreviousPage,
+    gotoNextPage: gotoNextPage
   }, dispatch)
 }
 

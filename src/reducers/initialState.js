@@ -2,5 +2,11 @@ export default {
   dashboard: {
     isSidebarOpen: false
   },
-  products: []
+  products: {
+    data: [],
+    ending_before: '',
+    starting_after: '',
+    selected: '',
+    has_more: false
+  }
 }
