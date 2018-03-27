@@ -48,8 +48,8 @@ class ProductList extends Component {
           </TableBody>
         </Table>
         <Pagination 
-        gotoPreviousPage={ () => this.props.gotoPreviousPage() }
-        gotoNextPage={ () => this.props.gotoNextPage() }
+        gotoPreviousPage={ this.props.gotoPreviousPage }
+        gotoNextPage={ this.props.gotoNextPage }
         />
       </div> 
     );

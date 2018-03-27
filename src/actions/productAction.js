@@ -39,10 +39,10 @@ export function gotoNextPage() {
       limit: Constant.API_LIST_LIMIT
     }
     if(products.has_more) {
-      params['starting_after'] = products.ending_before
+      params['starting_after'] = products.ending_id
       dispatch(listProductFromApi(params))
     }
-    else if(!products.ending_before){
+    else if(!products.ending_id){
       dispatch(listProductFromApi(params))
     }
   }
@@ -50,7 +50,7 @@ export function gotoNextPage() {
 
 export function gotoPreviousPage() {
   return function(dispatch, getState) {
-    const ending_before = getState().products.starting_after
+    const ending_before = getState().products.starting_id
     let params = {
       limit: Constant.API_LIST_LIMIT
     }

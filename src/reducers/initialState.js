@@ -4,8 +4,8 @@ export default {
   },
   products: {
     data: [],
-    ending_before: '',
-    starting_after: '',
+    ending_id: '',
+    starting_id: '',
     selected: '',
     has_more: false
   }

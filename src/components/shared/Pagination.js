@@ -18,7 +18,7 @@ class Pagination extends Component {
               <BottomNavigationItem
                 label="Previous"
                 icon={<ChevronLeft />}
-                onClick={ () => this.props.gotoPreviousPage() }
+                onClick={ this.props.gotoPreviousPage }
               />
               <BottomNavigationItem
                 label="Active"
@@ -27,7 +27,7 @@ class Pagination extends Component {
               <BottomNavigationItem
                 label="Next"
                 icon={<ChevronRight />}
-                onClick={ () => this.props.gotoNextPage() }
+                onClick={ this.props.gotoNextPage }
               />
             </BottomNavigation>
           </Paper>
